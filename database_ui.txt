@@ -1,0 +1,67 @@
+<?php session_start(); ?>
+
+
+<?php 
+if (!isset($_SESSION['loggedIn'])) {
+	echo "<script type='text/javascript'>document.location.href='https://users.encs.concordia.ca/~z_torocs/353-project/index.php';</script>";
+}
+?>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Contact Form - PHP/MySQL Demo Code</title>
+</head>
+<body>
+<fieldset>
+<legend>Enter Query</legend>
+<form name="frmContact" method="post" action="database-ui.php">
+<p>
+<label for="query">Query </label>
+<input type="text" name="query" id="user_query">
+<input type="submit" name="Submit" id="Submit" value="Submit">
+</p>
+</form>
+</fieldset>
+</body>
+</html>
+
+
+
+
+<?php
+if (isset($_POST['Submit'])) {
+$user_query = $_POST['query'];
+$servername = "xac353.encs.concordia.ca";
+$username = "xac353_4";
+$password = "COMP2023";
+$db_name = "xac353_4";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $db_name);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+//echo "Connected successfully";
+$query_type = strtok($user_query, " ");
+// Perform query
+if ($result = $conn -> query($user_query)) {
+	
+	if ($query_type == "select" or $query_type == "show") {
+		$rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+		echo "<br>";
+		foreach ($rows as $row) {
+			foreach ($row as $col) {
+				echo $col, " ";
+			}
+			echo "<br>";
+	}
+	// Free result set
+	$result -> free_result();
+	}
+}
+}

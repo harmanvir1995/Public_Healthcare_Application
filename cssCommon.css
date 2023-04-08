@@ -1,0 +1,45 @@
+/* CSS for the table */
+table {
+    font-family: Arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  td, th {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  /* CSS for the headings */
+  h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  h3 {
+    font-size: 24px;
+    margin-top: 30px;
+  }
+  
+  /* CSS for the links */
+  a {
+    color: #008CBA;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
