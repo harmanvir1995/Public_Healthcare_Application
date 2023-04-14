@@ -118,7 +118,7 @@
             <label for="email_address">Email Address:</label>
             <input type="email" id="email_address" name="email_address" maxlength="255" required><br><br>
 
-            <input type="submit" name="Submit" value="Submit">
+            <input type="submit" name="Submit" value="Submit" >
             <input type="reset" value="Reset">
         </form>
     </fieldset>

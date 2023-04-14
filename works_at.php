@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Employees Table</title>
+        <title>Location Table</title>
         <link rel="stylesheet" type="text/css" href="cssCommon.css">
         <style>
             /* CSS for the table */
@@ -32,6 +32,7 @@
                 font-size: 36px;
                 text-align: center;
                 margin-top: 50px;
+                color: blue;
             }
             
             h3 {
@@ -52,20 +53,16 @@
         </style>
     </head>
     <body>
-        <h1>Employees</h1>
+        <h1>Works At</h1>
         <h3><a href="index.php">Back to Home Page</a></h3>
-        <h3><a href="employeesNewEntry.php">Create a New Entry</a></h3>
+        <h3><a href="worksAtNewEntry.php">Create a New Entry</a></h3>
         <table>
             <tr>
+                <th>Facility ID</th>
                 <th>Medicare Number</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Date of Birth</th>
-                <th>Phone Number</th>
-                <th>Address</th>
-                <th>Postal Code</th>
-                <th>Citizenship</th>
-                <th>Email Adress</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Role</th>
                 <th colspan="3">Actions</th>
             </tr>
             <?php
@@ -82,7 +79,7 @@
                  }
      
                  // Write sql query for all the tables
-                 $sql = "SELECT * FROM employees;";
+                 $sql = "SELECT * FROM works_at;";
      
                  // Make query and get results.
                  $result = mysqli_query($conn, $sql);
@@ -93,22 +90,10 @@
                  if (mysqli_num_rows($result) > 0) {
                      echo "<tr>";
                      foreach ($tables as $row) {
-                        $key = $row['medicare_number'];
-                        // echo type($row);
                         foreach($row as $col){
                             echo "<td>" . $col ."</td>";
                         }
-                        // echo  "<br>" .$key . "<br>";
-                        echo "<td><form action='employees.php' method='post'><input type=text value='" . $key . "' name='deleted'  hidden><input type='Submit' name='DELETE'></form>";
                         echo "</tr>";
-                     }
-
-                     if (isset($_POST['Submit'])){
-                        $pkey = $_POST['deleted'];
-                        $sql = "delete FROM employees where medicare_number = '$pkey';";
-     
-                        // Make query and get results.
-                        mysqli_query($conn, $sql);
                      }
                      
                  } else {
