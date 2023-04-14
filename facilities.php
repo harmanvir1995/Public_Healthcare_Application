@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Employees Table</title>
+        <title>Facilities Table</title>
         <link rel="stylesheet" href="cssCommon.css">
         <style>
             /* CSS for the table */

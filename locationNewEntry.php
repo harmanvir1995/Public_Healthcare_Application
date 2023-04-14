@@ -82,7 +82,7 @@
     <h2>Insert Data in Location Table</h2>
 	<fieldset>
 	<legend>Enter Data to Store</legend>
-	<form action="insert_location.php" method="post">
+	<form action="locationNewEntry.php" method="post">
 		<label for="postal_code">Postal Code:</label>
 		<input type="text" id="postal_code" name="postal_code" required maxlength="7"><br><br>
 

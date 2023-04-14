@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Location Table</title>
+        <title>Schedule Table</title>
         <link rel="stylesheet" type="text/css" href="cssCommon.css">
         <style>
             /* CSS for the table */

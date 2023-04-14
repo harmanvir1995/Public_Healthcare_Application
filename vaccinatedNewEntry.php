@@ -79,30 +79,26 @@
 </head>
 
 <body>
-    <h1>Schedule</h1>
+    <h1>Vaccinated</h1>
     <h3><a href="index.php">Back to Home Page</a></h3>
-    <h2>Insert Data in Schedule Table</h2>
+    <h2>Insert Data in Vaccinated Table</h2>
     <fieldset>
         <legend>Enter Data to Store</legend>
-        <form action="scheduleNewEntry.php" method="post">
-            <label for="medicare_number">Medicare Number:</label>
-            <input type="text" id="medicare_number" name="medicare_number" required maxlength="10"><br><br>
+        <form action="vaccinatedNewEntry.php" method="post">
+        <label for="vac_id">Vaccination ID:</label>
+        <input type="text" id="vac_id" name="vac_id" required>
 
-            <label for="facility_id">Facility ID:</label>
-            <input type="text" id="facility_id" name="facility_id" required><br><br>
+        <label for="medicare_number">Medicare Number:</label>
+        <input type="text" id="medicare_number" name="medicare_number" required>
 
-            <label for="day">Day:</label>
-            <input type="date" id="day" name="day" required><br><br>
+        <label for="date">Date (YYYY-MM-DD):</label>
+        <input type="date" id="date" name="date" required>
 
-            <label for="start_time">Start Time:</label>
-            <input type="time" id="start_time" name="start_time" required><br><br>
-
-            <label for="end_time">End Time:</label>
-            <input type="time" id="end_time" name="end_time" required><br><br>
-
-            <input type="submit" name="Submit" value="Submit">
-            <input type="reset" value="Reset">
-        </form>
+        <label for="dose_number">Dose Number:</label>
+        <input type="number" id="dose_number" name="dose_number" required>
+        <br/><br/>
+        <input type="submit" value="Submit" name = "Submit">
+    </form>
     </fieldset>
 </body>
 
@@ -116,15 +112,14 @@
         $username = "xac353_4";
         $password = "COMP2023";
         $db_name = "xac353_4";
-       // Retrieve data from form
+       // Get submitted data from the form
+        $vac_id = $_POST['vac_id'];
         $medicare_number = $_POST['medicare_number'];
-        $facility_id = $_POST['facility_id'];
-        $day = $_POST['day'];
-        $start_time = $_POST['start_time'];
-        $end_time = $_POST['end_time'];
+        $date = $_POST['date'];
+        $dose_number = $_POST['dose_number'];
 
        // Prepare SQL statement
-        $sql = "INSERT INTO schedule (medicare_number, facility_id, day, start_time, end_time)
+        $sql = "INSERT INTO vaccinated (vac_id, medicare_number, date, dose_number)
         VALUES ($medicare_number, $facility_id, $day, $start_time, $end_time)";
 
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Infected Table</title>
+        <title>Location Table</title>
         <link rel="stylesheet" type="text/css" href="cssCommon.css">
         <style>
             /* CSS for the table */
@@ -52,14 +52,13 @@
         </style>
     </head>
     <body>
-        <h1>Infected</h1>
+        <h1>Vaccines</h1>
         <h3><a href="index.php">Back to Home Page</a></h3>
-        <h3><a href="infectedNewEntry.php">Create a New Entry</a></h3>
+        <h3><a href="vaccinesNewEntry.php">Create a New Entry</a></h3>
         <table>
             <tr>
-                <th>Infected ID</th>
-                <th>Medicare Number</th>
-                <th>Date</th>
+                <th>Vaccine ID</th>
+                <th>Type</th>
                 <th colspan="3">Actions</th>
             </tr>
             <?php
@@ -67,7 +66,6 @@
                  $username = "xac353_4";
                  $password = "COMP2023";
                  $db_name = "xac353_4";
-                 
                  // Connecting to the database
                  $conn = new mysqli($servername, $username, $password, $db_name);
      
@@ -77,7 +75,7 @@
                  }
      
                  // Write sql query for all the tables
-                 $sql = "SELECT * FROM infected;";
+                 $sql = "SELECT * FROM vaccines;";
      
                  // Make query and get results.
                  $result = mysqli_query($conn, $sql);
@@ -91,7 +89,6 @@
                         foreach($row as $col){
                             echo "<td>" . $col ."</td>";
                         }
-
                         echo "</tr>";
                      }
                      
