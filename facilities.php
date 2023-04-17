@@ -55,6 +55,8 @@
         <h1>Facilities</h1>
         <h3><a href="index.php">Back to Home Page</a></h3>
         <h3><a href="facilitiesNewEntry.php">Create a New Entry</a></h3>
+        <h3><a href="editFacilities.php">Edit an Entry</a></h3>
+
         <table>
             <tr>
                 <th>Facility ID</th>
