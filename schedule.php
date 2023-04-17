@@ -89,10 +89,30 @@
                  if (mysqli_num_rows($result) > 0) {
                      echo "<tr>";
                      foreach ($tables as $row) {
+                       
+                        $medicare_number =  $row['medicare_number'];
+                        $facility_id = $row['facility_id'];
+                        $day = $row['day'];
+                        $start_time = $row['start_time'];
                         foreach($row as $col){
                             echo "<td>" . $col ."</td>";
                         }
+                        echo "<td><form action='schedule.php' method='post'><input type=text value='" . $medicare_number . "' name='medicare_number'  hidden><input type=text value='" . $facility_id . "' name='facility_id'  hidden><input type=text value='" . $day . "' name='day'  hidden><input type=text value='" . $start_time . "' name='start_time'  hidden><input type='Submit' name='Submit' value = 'DELETE'></form>";
                         echo "</tr>";
+                     }
+                     if (isset($_POST['Submit'])){
+                        $facility_id = $_POST['facility_id'];
+                        $medicare_number = $_POST['medicare_number'];
+                        $day = $_POST['day'];
+                        $start_time = $row['start_time'];
+                        $sql = "delete FROM schedule where facility_id = '$facility_id' AND medicare_number = '$medicare_number' AND day='$day' AND start_time = '$start_time';";
+                        echo "<script>alert('Value has been deleted..!!');</script>";
+     
+                        // Make query and get results.
+                        mysqli_query($conn, $sql);
+                        
+                        // echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                        
                      }
                      
                  } else {
