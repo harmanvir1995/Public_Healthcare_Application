@@ -65,6 +65,7 @@
                 <th>Web Address</th>
                 <th>Type</th>
                 <th>Capacity</th>
+                <th colspan="3">Actions</th>
             </tr>
             <?php
                  $servername = "xac353.encs.concordia.ca";
@@ -91,11 +92,25 @@
                  if (mysqli_num_rows($result) > 0) {
                      echo "<tr>";
                      foreach ($tables as $row) {
+                        $key = $row['facility_id'];
+
                         foreach($row as $col){
                             echo "<td>" . $col ."</td>";
                         }
+                        echo "<td><form action='facilities.php' method='post'><input type=text value='" . $key . "' name='deleted'  hidden><input type='Submit' name='Submit' value = 'DELETE'></form>";
                         echo "</tr>";
                      }
+                     
+                     if (isset($_POST['Submit'])){
+                        $pkey = $_POST['deleted'];
+                        $sql = "delete FROM facilities where facility_id = '$pkey';";
+                        echo "<script>alert('Value has been deleted..!!');</script>";
+     
+                        // Make query and get results.
+                        mysqli_query($conn, $sql);
+                     }
+                     
+                     
                      
                  } else {
                      echo "No tables found";

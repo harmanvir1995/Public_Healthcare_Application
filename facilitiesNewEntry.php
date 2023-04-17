@@ -102,7 +102,7 @@
             <input type="text" id="type" name="type"><br>
             <label for="capacity">Capacity:</label><br>
             <input type="number" id="capacity" name="capacity"><br><br>
-            <input type="submit" value="Submit" name="Submit" id="Submit">
+            <input type="submit" value="Submit" name="Submit" id="Submit"><br>
             <input type="reset" value="Reset">
         </form>
 

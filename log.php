@@ -54,7 +54,6 @@
     <body>
         <h1>Log</h1>
         <h3><a href="index.php">Back to Home Page</a></h3>
-        <h3><a href="scheduleNewEntry.php">Create a New Entry</a></h3>
         <table>
             <tr>
                 <th>From Facility ID</th>

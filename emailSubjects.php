@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Infected Table</title>
+        <title>Email Subjects Table</title>
         <link rel="stylesheet" type="text/css" href="cssCommon.css">
         <style>
             /* CSS for the table */
@@ -52,22 +52,18 @@
         </style>
     </head>
     <body>
-        <h1>Infected</h1>
+        <h1>Email Subjects</h1>
         <h3><a href="index.php">Back to Home Page</a></h3>
-        <h3><a href="infectedNewEntry.php">Create a New Entry</a></h3>
         <table>
             <tr>
-                <th>Infected ID</th>
-                <th>Medicare Number</th>
-                <th>Date</th>
-                <th colspan="3">Actions</th>
+                <th>Subject</th>
+                <th>Body</th>
             </tr>
             <?php
                  $servername = "xac353.encs.concordia.ca";
                  $username = "xac353_4";
                  $password = "COMP2023";
                  $db_name = "xac353_4";
-                 
                  // Connecting to the database
                  $conn = new mysqli($servername, $username, $password, $db_name);
      
@@ -77,7 +73,7 @@
                  }
      
                  // Write sql query for all the tables
-                 $sql = "SELECT * FROM infected;";
+                 $sql = "SELECT * FROM emailSubjects;";
      
                  // Make query and get results.
                  $result = mysqli_query($conn, $sql);
@@ -89,26 +85,13 @@
                      echo "<tr>";
                      foreach ($tables as $row) {
                         foreach($row as $col){
-                            $inf_id = $row['inf_id'];
-                            $medicare_number =  $row['medicare_number'];
-                            $date = $row['date'];
                             echo "<td>" . $col ."</td>";
                         }
-                        echo "<td><form action='infected.php' method='post'><input type=text value='" . $key . "' name='inf_id'  hidden><input type=text value='" . $key . "' name='med_num'  hidden><input type=text value='" . $key . "' name='date'  hidden><input type='Submit' name='Submit' value = 'DELETE'></form>";
                         echo "</tr>";
-                     }
-
-                     if (isset($_POST['Submit'])){
-                        $pkey = $_POST['deleted'];
-                        $sql = "delete FROM infected where inf_id = '$inf_id' AND medicare_number = '$pkey' AND date='$date';";
-                        echo "<script>alert('Value has been deleted..!!');</script>";
-     
-                        // Make query and get results.
-                        mysqli_query($conn, $sql);
                      }
                      
                  } else {
-                        echo "No tables found";
+                     echo "No tables found";
                  }
      
                  // Free Result from memory.
