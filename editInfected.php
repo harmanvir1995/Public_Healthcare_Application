@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Insert Schedule Data</title>
-    <style>
+	<title>Edit Infected Data</title>
+  <style>
     body {
         background-color: #f2f2f2;
         font-family: Arial, sans-serif;
@@ -77,35 +76,27 @@
     }
     </style>
 </head>
-
 <body>
-    <h1>Schedule</h1>
+    <h1>Infected</h1>
     <h3><a href="index.php">Back to Home Page</a></h3>
-    <h2>Insert Data in Schedule Table</h2>
+    <h2>Edit Data in Infected Table</h2>
     <fieldset>
-        <legend>Enter Data to Store</legend>
-        <form action="scheduleNewEntry.php" method="post">
-            <label for="medicare_number">Medicare Number:</label>
-            <input type="text" id="medicare_number" name="medicare_number" required maxlength="10"><br><br>
+    <legend>Enter Data to Store</legend>
+	<form action="editInfected.php" method="post">
+		<label for="inf_id">Infected ID:</label>
+		<input type="text" id="inf_id" name="inf_id" required><br><br>
 
-            <label for="facility_id">Facility ID:</label>
-            <input type="text" id="facility_id" name="facility_id" required><br><br>
+		<label for="medicare_number">Medicare Number:</label>
+		<input type="text" id="medicare_number" name="medicare_number" required><br><br>
 
-            <label for="day">Day:</label>
-            <input type="date" id="day" name="day" required><br><br>
+		<label for="date">Date:</label>
+		<input type="date" id="date" name="date" required><br><br>
 
-            <label for="start_time">Start Time:</label>
-            <input type="time" id="start_time" name="start_time" required><br><br>
-
-            <label for="end_time">End Time:</label>
-            <input type="time" id="end_time" name="end_time" required><br><br>
-
-            <input type="submit" name="Submit" value="Submit">
-            <input type="reset" value="Reset">
-        </form>
-    </fieldset>
+		<input type="submit" name = "Submit" value="Submit">
+        <input type="reset" value="Reset">
+	</form>
+</fieldset>
 </body>
-
 </html>
 
 
@@ -116,17 +107,13 @@
         $username = "xac353_4";
         $password = "COMP2023";
         $db_name = "xac353_4";
-       // Retrieve data from form
+        // Get the form data
+        $inf_id = $_POST['inf_id'];
         $medicare_number = $_POST['medicare_number'];
-        $facility_id = $_POST['facility_id'];
-        $day = $_POST['day'];
-        $start_time = $_POST['start_time'];
-        $end_time = $_POST['end_time'];
-
-       // Prepare SQL statement
-        $sql = "INSERT INTO schedule (medicare_number, facility_id, day, start_time, end_time)
-        VALUES ('$medicare_number', '$facility_id', '$day', '$start_time', '$end_time')";
-
+        $date = $_POST['date'];
+        
+        // Insert the data into the "infected" table
+        $sql = "update infected set inf_id ='$inf_id', medicare_number = '$medicare_number', date = '$date'";
 
         // Create connection
         $conn = new mysqli($servername, $username, $password, $db_name);
@@ -138,7 +125,7 @@
         //echo "Connected successfully";
         // Perform query
         if ($result = $conn -> query($sql)) {
-          echo "Successfully added tuple into Scheduele table";
+          echo "Successfully edited tuple in Facilities table";
         } else {
           echo "Unsuccessful insertion";
         }

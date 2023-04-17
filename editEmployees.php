@@ -81,7 +81,7 @@
 <body>
     <h1>Employees</h1>
     <h3><a href="index.php">Back to Home Page</a></h3>
-    <h2>Insert Employee Data</h2>
+    <h2>Edit Employee Data</h2>
     <fieldset>
         <legend>Enter medicare number and new values for those you wish to edit</legend>
         <form action="editEmployees.php" method="post">
@@ -140,86 +140,14 @@
         $medicare_number = $_POST['medicare_number'];
         
         $first_name = $_POST['first_name'];
-        // if (empty($first_name)) {
-        //     $sql = "SELECT first_name from employees where medicare_number = '$medicare_number'";
-        //     $result = mysqli_query($conn, $sql);
-        //     while ($row = mysql_fetch_assoc($result)) {
-        //         $first_name = $row['first_name'];
-        //     }
-        // }
-
-
         $last_name = $_POST['last_name'];
-        // if (empty($last_name)) {
-        //     $sql = "SELECT last_name from employees where medicare_number = '$medicare_number'";
-        //     $result = mysqli_query($conn, $sql);
-        //     while ($row = mysql_fetch_assoc($result)) {
-        //         $last_name = $row['last_name'];
-
-        //     }
-
-        // }
-
-
         $date_of_birth = $_POST['date_of_birth'];
-        // if (empty($date_of_birth)) {
-        //     $sql = "SELECT date_of_birth from employees where medicare_number = '$medicare_number'";
-        //     $result = mysqli_query($conn, $sql);
-        //     while ($row = mysql_fetch_assoc($result)) {
-        //         $date_of_birth = $row['date_of_birth'];
-
-        //     }
-            
-
-        // }
-
         $phone_number = $_POST['phone_number'];
-        // if (empty($phone_number)) {
-        //     $sql = "SELECT phone_number from employees where medicare_number = '$medicare_number'";
-        //     $result = mysqli_query($conn, $sql);
-        //     while ($row = mysql_fetch_assoc($result)) {
-        //         $phone_number = $row['phone_number'];
-
-        //     }
-
-        // }
         $address = $_POST['address'];
-        // if (empty($address)) {
-        //     $sql = "SELECT address from employees where medicare_number = '$medicare_number'";
-        //     $result = mysqli_query($conn, $sql);
-        //     while ($row = mysql_fetch_assoc($result)) {
-        //         $adress = $row['address'];
-
-        //     }
-
-        // }
-
         $postal_code = $_POST['postal_code'];
-        // if (empty($postal_code)) {
-        //     $sql = "SELECT postal_code from employees where medicare_number = '$medicare_number'";
-        //     $result = mysqli_query($conn, $sql);
-        //     while ($row = mysql_fetch_assoc($result)) {
-        //         $postal_code = $row['postal_code'];
-
-        //     }            
-
-        // }
         $citizenship = $_POST['citizenship'];
-        // if (empty($citizenship)) {
-        //     $sql = "SELECT citizenship from employees where medicare_number = '$medicare_number'";
-        //     $result = mysqli_query($conn, $sql);
-        //     while ($row = mysql_fetch_assoc($result)) {
-        //         $citizenship = $row['citizenship'];
-        // }}
-
         $email_address = $_POST['email_address'];
-        // if (empty($email_address)) {
-        //     $sql = "SELECT email_address from employees where medicare_number = '$medicare_number'";
-        //     while ($row = mysql_fetch_assoc($result)) {
-        //         $email_address = $row['email_address'];
-        //     }
 
-        // }
 
 
       

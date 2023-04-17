@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Insert Schedule Data</title>
+    <title>Edit Schedule Data</title>
     <style>
     body {
         background-color: #f2f2f2;
@@ -81,10 +81,10 @@
 <body>
     <h1>Schedule</h1>
     <h3><a href="index.php">Back to Home Page</a></h3>
-    <h2>Insert Data in Schedule Table</h2>
+    <h2>Edit Data in Schedule Table</h2>
     <fieldset>
-        <legend>Enter Data to Store</legend>
-        <form action="scheduleNewEntry.php" method="post">
+        <legend>Enter Data</legend>
+        <form action="newschedule.php" method="post">
             <label for="medicare_number">Medicare Number:</label>
             <input type="text" id="medicare_number" name="medicare_number" required maxlength="10"><br><br>
 
@@ -124,8 +124,7 @@
         $end_time = $_POST['end_time'];
 
        // Prepare SQL statement
-        $sql = "INSERT INTO schedule (medicare_number, facility_id, day, start_time, end_time)
-        VALUES ('$medicare_number', '$facility_id', '$day', '$start_time', '$end_time')";
+        $sql = "update schedule set medicare_number = '$medicare_number', facility_id ='$facility_id', day ='$day', start_time ='$start_time', end_time = '$end_time'";
 
 
         // Create connection
@@ -138,9 +137,9 @@
         //echo "Connected successfully";
         // Perform query
         if ($result = $conn -> query($sql)) {
-          echo "Successfully added tuple into Scheduele table";
+          echo "Successfully edited tuple in Scheduele table";
         } else {
-          echo "Unsuccessful insertion";
+          echo "Unsuccessful edit";
         }
         }
 ?>
