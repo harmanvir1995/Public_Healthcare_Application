@@ -55,6 +55,8 @@
         <h1>Employees</h1>
         <h3><a href="index.php">Back to Home Page</a></h3>
         <h3><a href="employeesNewEntry.php">Create a New Entry</a></h3>
+        <h3><a href="editEmployees.php">Edit an Entry</a></h3>
+
         <table>
             <tr>
                 <th>Medicare Number</th>
