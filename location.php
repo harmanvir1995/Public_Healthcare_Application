@@ -52,7 +52,7 @@
         </style>
     </head>
     <body>
-        <h1>Infections</h1>
+        <h1>Location</h1>
         <h3><a href="index.php">Back to Home Page</a></h3>
         <h3><a href="locationNewEntry.php">Create a New Entry</a></h3>
         <table>

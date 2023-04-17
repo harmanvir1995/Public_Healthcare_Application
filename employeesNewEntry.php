@@ -103,12 +103,6 @@
             <label for="address">Address:</label>
             <input type="text" id="address" name="address" maxlength="255" required><br><br>
 
-            <label for="city">City:</label>
-            <input type="text" id="city" name="city" maxlength="35" required><br><br>
-
-            <label for="province">Province:</label>
-            <input type="text" id="province" name="province" maxlength="2" required><br><br>
-
             <label for="postal_code">Postal Code:</label>
             <input type="text" id="postal_code" name="postal_code" maxlength="7" required><br><br>
 
@@ -139,8 +133,6 @@
         $date_of_birth = $_POST['date_of_birth'];
         $phone_number = $_POST['phone_number'];
         $address = $_POST['address'];
-        $city = $_POST['city'];
-        $province = $_POST['province'];
         $postal_code = $_POST['postal_code'];
         $citizenship = $_POST['citizenship'];
         $email_address = $_POST['email_address'];
@@ -154,8 +146,8 @@
         die("Connection failed: " . $conn->connect_error);
         }
         // Insert the data into the "employees" table
-        $sql = "INSERT INTO employees (medicare_number, first_name, last_name, date_of_birth, phone_number, address, city, province, postal_code, citizenship, email_address)
-        VALUES ('$medicare_number', '$first_name', '$last_name', '$date_of_birth', '$phone_number', '$address', '$city', '$province', '$postal_code', '$citizenship', '$email_address')";
+        $sql = "INSERT INTO employees (medicare_number, first_name, last_name, date_of_birth, phone_number, address, postal_code, citizenship, email_address)
+        VALUES ('$medicare_number', '$first_name', '$last_name', '$date_of_birth', '$phone_number', '$address',  '$postal_code', '$citizenship', '$email_address')";
 
         // Perform the SQL query.
         if (mysqli_query($conn, $sql)) {

@@ -85,20 +85,27 @@
     <fieldset>
         <legend>Enter Data to Store</legend>
         <form action="worksAtNewEntry.php" method="post">
-        <label for="vac_id">Vaccination ID:</label>
-        <input type="text" id="vac_id" name="vac_id" required>
+            <label for="facility_id">Facility ID:</label>
+            <input type="text" id="facility_id" name="facility_id" required>
+            <br><br>
 
-        <label for="medicare_number">Medicare Number:</label>
-        <input type="text" id="medicare_number" name="medicare_number" required>
+            <label for="medicare_number">Medicare Number:</label>
+            <input type="text" id="medicare_number" name="medicare_number" required>
+            <br><br>
 
-        <label for="date">Date (YYYY-MM-DD):</label>
-        <input type="date" id="date" name="date" required>
+            <label for="start_date">Start Date (YYYY-MM-DD):</label>
+            <input type="date" id="start_date" name="start_date" required>
+            <br><br>
 
-        <label for="dose_number">Dose Number:</label>
-        <input type="number" id="dose_number" name="dose_number" required>
-        <br/><br/>
-        <input type="submit" value="Submit" name = "Submit">
-    </form>
+            <label for="end_date">End Date (YYYY-MM-DD):</label>
+            <input type="date" id="end_date" name="end_date">
+            <br><br>
+
+            <label for="role">Role:</label>
+            <input type="text" id="role" name="role" required>
+            <br><br>
+            <input type="submit" value="Submit" name = "Submit">
+        </form>
     </fieldset>
 </body>
 

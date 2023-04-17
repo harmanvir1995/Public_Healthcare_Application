@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Insert Location Data</title>
-	<style>
+    <title>Insert Schedule Data</title>
+    <style>
     body {
         background-color: #f2f2f2;
         font-family: Arial, sans-serif;
@@ -76,28 +77,33 @@
     }
     </style>
 </head>
+
 <body>
-	<h1>Location</h1>
+    <h1>Vaccinated</h1>
     <h3><a href="index.php">Back to Home Page</a></h3>
-    <h2>Insert Data in Location Table</h2>
-	<fieldset>
-	<legend>Enter Data to Store</legend>
-	<form action="locationNewEntry.php" method="post">
-		<label for="postal_code">Postal Code:</label>
-		<input type="text" id="postal_code" name="postal_code" required maxlength="7"><br><br>
+    <h2>Insert Data in Vaccinated Table</h2>
+    <fieldset>
+        <legend>Enter Data to Store</legend>
+        <form action="vaccinesNewEntry.php" method="post">
+        <label for="vac_id">Vaccination ID:</label>
+        <input type="text" id="vac_id" name="vac_id" required>
 
-		<label for="city">City:</label>
-		<input type="text" id="city" name="city" required><br><br>
+        <label for="medicare_number">Medicare Number:</label>
+        <input type="text" id="medicare_number" name="medicare_number" required>
 
-		<label for="province">Province:</label>
-		<input type="text" id="province" name="province" required maxlength="2"><br><br>
+        <label for="date">Date (YYYY-MM-DD):</label>
+        <input type="date" id="date" name="date" required>
 
-		<input type="submit" name = "Submit" value="Submit">
-		<input type="reset" value="Reset">
-	</form>
-</fieldset>
+        <label for="dose_number">Dose Number:</label>
+        <input type="number" id="dose_number" name="dose_number" required>
+        <br/><br/>
+        <input type="submit" value="Submit" name = "Submit">
+    </form>
+    </fieldset>
 </body>
+
 </html>
+
 
 
 <?php
@@ -106,14 +112,16 @@
         $username = "xac353_4";
         $password = "COMP2023";
         $db_name = "xac353_4";
-        // Get the form data
-		$postal_code = $_POST['postal_code'];
-		$city = $_POST['city'];
-		$province = $_POST['province'];
+       // Get submitted data from the form
+        $vac_id = $_POST['vac_id'];
+        $medicare_number = $_POST['medicare_number'];
+        $date = $_POST['date'];
+        $dose_number = $_POST['dose_number'];
 
-        // Insert the data into the "location" table
-		$sql = "INSERT INTO location (postal_code, city, province)
-		VALUES ('$postal_code', '$city', '$province')";
+       // Prepare SQL statement
+        $sql = "INSERT INTO vaccines (vac_id, medicare_number, date, dose_number)
+        VALUES ($medicare_number, $facility_id, $day, $start_time, $end_time)";
+
 
         // Create connection
         $conn = new mysqli($servername, $username, $password, $db_name);
@@ -125,7 +133,7 @@
         //echo "Connected successfully";
         // Perform query
         if ($result = $conn -> query($sql)) {
-          echo "Successfully added tuple into Locations table";
+          echo "Successfully added tuple into Vaccines table";
         } else {
           echo "Unsuccessful insertion";
         }

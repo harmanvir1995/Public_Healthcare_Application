@@ -138,7 +138,7 @@
         //echo "Connected successfully";
         // Perform query
         if ($result = $conn -> query($sql)) {
-          echo "Successfully added tuple into Facilities table";
+          echo "Successfully added tuple into Scheduele table";
         } else {
           echo "Unsuccessful insertion";
         }
