@@ -91,14 +91,14 @@
             <label for="facility_id">Facility ID:</label>
             <input type="text" id="facility_id" name="facility_id" required><br><br>
 
-            <label for="day">Day:</label>
-            <input type="date" id="day" name="day" required><br><br>
+            <label for="day">Day: (yyyy-mm-dd)</label>
+            <input type="text" id="day" name="day" required><br><br>
 
-            <label for="start_time">Start Time:</label>
-            <input type="time" id="start_time" name="start_time" required><br><br>
+            <label for="start_time">Start Time: (00:00)</label>
+            <input type="text" id="start_time" name="start_time" required><br><br>
 
-            <label for="end_time">End Time:</label>
-            <input type="time" id="end_time" name="end_time" required><br><br>
+            <label for="end_time">End Time: (00:00)</label>
+            <input type="text" id="end_time" name="end_time" required><br><br>
 
             <input type="submit" name="Submit" value="Submit">
             <input type="reset" value="Reset">
@@ -128,6 +128,7 @@
         VALUES ('$medicare_number', '$facility_id', '$day', '$start_time', '$end_time')";
 
 
+
         // Create connection
         $conn = new mysqli($servername, $username, $password, $db_name);
         
@@ -140,7 +141,7 @@
         if ($result = $conn -> query($sql)) {
           echo "Successfully added tuple into Scheduele table";
         } else {
-          echo "Unsuccessful insertion";
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
         }
 ?>
