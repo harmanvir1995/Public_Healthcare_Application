@@ -88,19 +88,21 @@
                  if (mysqli_num_rows($result) > 0) {
                      echo "<tr>";
                      foreach ($tables as $row) {
+                        $inf_id = $row['inf_id'];
+                        $medicare_number =  $row['medicare_number'];
+                        $date = $row['date'];
                         foreach($row as $col){
-                            $inf_id = $row['inf_id'];
-                            $medicare_number =  $row['medicare_number'];
-                            $date = $row['date'];
                             echo "<td>" . $col ."</td>";
                         }
-                        echo "<td><form action='infected.php' method='post'><input type=text value='" . $key . "' name='inf_id'  hidden><input type=text value='" . $key . "' name='med_num'  hidden><input type=text value='" . $key . "' name='date'  hidden><input type='Submit' name='Submit' value = 'DELETE'></form>";
+                        echo "<td><form action='infected.php' method='post'><input type=text value='" . $inf_id . "' name='inf_id'  hidden><input type=text value='" . $medicare_number . "' name='med_num'  hidden><input type=text value='" . $date . "' name='date'  hidden><input type='Submit' name='Submit' value = 'DELETE'></form>";
                         echo "</tr>";
                      }
 
                      if (isset($_POST['Submit'])){
-                        $pkey = $_POST['deleted'];
-                        $sql = "delete FROM infected where inf_id = '$inf_id' AND medicare_number = '$pkey' AND date='$date';";
+                        $inf_id = $_POST['inf_id'];
+                        $medicare_number = $_POST['med_num'];
+                        $date = $_POST['date'];
+                        $sql = "delete FROM infected where inf_id = '$inf_id' AND medicare_number = '$medicare_number' AND date='$date';";
                         echo "<script>alert('Value has been deleted..!!');</script>";
      
                         // Make query and get results.
