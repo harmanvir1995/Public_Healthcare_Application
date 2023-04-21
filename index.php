@@ -5,43 +5,65 @@
     <head>
         <title>Public Health Care System</title>
         <style>
-            /* CSS Styles for the page */
-            body {
-                font-family: Arial, Helvetica, sans-serif;
-                margin: auto;
-                padding: 0;
-                text-align: center;
-            }
-            h1 {
-                background-color: #0074D9;
-                color: #FFFFFF;
-                padding: 10px;
-                text-align: center;
-            }
-            h2 {
-                margin-top: 30px;
-                text-align: center;
-            }
-            .tables {
-                margin: 50px auto;
-                max-width: 500px;
-            }
-            ol {
-                margin: 0;
-                padding: 0;
-                list-style-type: none;
-                font-size: 1.2em;
-            }
-            li {
-                margin-bottom: 10px;
-            }
-            a {
-                color: #0074D9;
-                text-decoration: none;
-            }
-            a:hover {
-                text-decoration: underline;
-            }
+           /* CSS Styles for the page */
+
+/* Body */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F5F5F5;
+    text-align: center;
+}
+
+/* Headings */
+h1 {
+    background-color: #0074D9;
+    color: #FFFFFF;
+    padding: 10px;
+    text-align: center;
+    margin: 0;
+}
+
+h2 {
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* Tables */
+.tables {
+    margin: 50px auto;
+    max-width: 500px;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* List of tables */
+ol {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    font-size: 1.2em;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #0074D9;
+    text-decoration: none;
+    text-transform: uppercase;
+
+}
+
+a:hover {
+    text-decoration: underline;
+    color: red;
+}
+
         </style>
     </head>
     <body>

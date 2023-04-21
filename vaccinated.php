@@ -89,10 +89,27 @@
                  if (mysqli_num_rows($result) > 0) {
                      echo "<tr>";
                      foreach ($tables as $row) {
+                        $medicare_number =  $row['medicare_number'];
+                        $vac_id = $row['vac_id'];
+                        $dose_number = $row['dose_number'];
                         foreach($row as $col){
                             echo "<td>" . $col ."</td>";
                         }
+                        echo "<td><form action='vaccinated.php' method='post'><input type=text value='" . $medicare_number . "' name='medicare_number'  hidden><input type=text value='" . $vac_id . "' name='vac_id'  hidden><input type=text value='" . $dose_number . "' name='dose_number'  hidden><input type='Submit' name='Submit' value = 'DELETE'></form>";
                         echo "</tr>";
+                     }
+                     if (isset($_POST['Submit'])){
+                        $medicare_number = $_POST['medicare_number'];
+                        $vac_id = $_POST['vac_id'];
+                        $dose_number = $row['dose_number'];
+                        $sql = "delete FROM vaccinated where medicare_number = '$medicare_number' AND vac_id = '$vac_id' AND dose_number='$dose_number';";
+                        echo "<script>alert('Value has been deleted..!!');</script>";
+     
+                        // Make query and get results.
+                        mysqli_query($conn, $sql);
+                        
+                        // echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                        
                      }
                      
                  } else {

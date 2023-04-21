@@ -63,7 +63,6 @@
                 <th>Start Date</th>
                 <th>End Date</th>
                 <th>Role</th>
-                <th colspan="3">Actions</th>
             </tr>
             <?php
                  $servername = "xac353.encs.concordia.ca";

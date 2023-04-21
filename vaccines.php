@@ -59,7 +59,6 @@
             <tr>
                 <th>Vaccine ID</th>
                 <th>Type</th>
-                <th colspan="3">Actions</th>
             </tr>
             <?php
                  $servername = "xac353.encs.concordia.ca";
